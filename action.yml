@@ -1,0 +1,24 @@
+name: 'Serverless Stack deploy'
+description: 'This action deploys a serverless stack'
+inputs:
+  access-key-id:
+    description: 'AWS access key id'
+    required: true
+  secret-access-key:
+    description: 'AWS secret access key'
+    required: true
+  region:
+    description: 'AWS region'
+    required: false
+    default: 'us-east-1'
+  path:
+    description: 'Path to the serverless stack'
+    required: false
+    default: '.'
+
+runs:
+  using: 'node16'
+  main: 'index.js'
+branding:
+  icon: 'box'
+  color: 'blue'
