@@ -1,7 +1,6 @@
 import { setFailed } from '@actions/core'
 import runner from "./lib/runner.js";
+import {compose, prop} from 'ramda'
 
-runner()
-	.catch((error) => {
-		setFailed(error.message);
-	});
+const setFailedMessage = compose(setFailed, prop('message')) 
+runner().catch(setFailedMessage);
