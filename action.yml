@@ -15,6 +15,10 @@ inputs:
     description: 'Path to the serverless stack'
     required: false
     default: '.'
+  pkg-manager:
+    description: 'Package mangers for your lock file. options are npm, yarn. (default yarn)'
+    required: false
+    default: 'yarn'
 
 runs:
   using: 'node16'
