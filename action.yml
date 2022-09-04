@@ -11,6 +11,10 @@ inputs:
     description: 'AWS region'
     required: false
     default: 'us-east-1'
+  stage: 
+    description: 'The stage name (default is production)'
+    required: false
+    default: production
   path:
     description: 'Path to the serverless stack'
     required: false
