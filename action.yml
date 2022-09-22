@@ -23,6 +23,10 @@ inputs:
     description: 'Package mangers for your lock file. options are npm, yarn. (default yarn)'
     required: false
     default: 'yarn'
+  envs:
+    description: 'Environmental variables passed into SST using secrets'
+    required: false
+    default: ''
 
 runs:
   using: 'node16'
