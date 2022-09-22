@@ -19,6 +19,9 @@ This action deploys your serverless stack application
 ### `pkg-manger`
 **Optional** Package mangers for your lock file. options are npm, yarn - [ yarn ]
 
+### `envs`
+**Optional** Environmental variables for your sst application
+
 
 ## Outputs
 ```
