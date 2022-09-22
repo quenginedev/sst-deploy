@@ -1,5 +1,5 @@
-name: 'Serverless Stack deploy'
-description: 'This action deploys a serverless stack'
+name: 'Serverless Stack (SST) deploy'
+description: 'This action deploys a serverless stack application to the staging environment of your choice'
 inputs:
   access-key-id:
     description: 'AWS access key id'
