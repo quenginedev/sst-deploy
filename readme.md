@@ -49,25 +49,29 @@ on: [push]
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: A job to SST to prod
+    name: Deploy SST APP
     steps:
-    
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        path: "./"
 
-    - name: Install Dependencies
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: "./"
 
-    - name: Deploy SST app
-      id: deploy
-      uses: quenginedev/sst-deploy@main
-      with:
-        access-key-id:  ${{ secrets.AWS_ACCESS_KEY_ID }}
-        secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        region: ${{ secrets.AWS_DEFAULT_REGION }}
-        path: './'
+      - name: Use Node.JS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Deploy SST app
+        uses: quenginedev/sst-deploy@main
+        env:
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+            # ANY OTHER ENVS can go here
+        with:
+          path: '/path/to/the/root/of/your/sst/folder'
+          pkg-manager: 'yarn' # required
+          stage: 'prod'
+          pre-deploy: 'cd ./path/to/web/app/or/something && yarn'
 ```
